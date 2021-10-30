@@ -6,8 +6,20 @@
 
 ## Instrucciones de uso
 
+### Configurar el proyecto
+
 **Cliente**
 
-Ejecucion: ng serve
+Instale algunos modulos de Angular:
+
+```
+npm install --save-dev @angular-devkit/build-angular
+```
+
+Ejecute la aplicación:
+
+```
+ng serve
+```
 
 **Server**
