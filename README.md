@@ -1,8 +1,10 @@
 # Bases de Datos Avanzadas - Proyecto Grupal II
 
 ## Integrantes
-
+- Melany Acuña Vega
+- Julian Bloise 
 - David Quesada Calderón
+- Cristian Marin Murilo
 
 ## Instrucciones de uso
 
@@ -23,3 +25,16 @@ ng serve
 ```
 
 **Server**
+URLS:
+Usar npm install para las dependencias
+El api se inicia con npm start
+
+GETS:
+https://localhost:3000/voluntarios
+https://localhost:3000/organizaciones
+https://localhost:3000/proyectos
+
+POST:
+https://localhost:3000/voluntarios/add
+https://localhost:3000/organizaciones/add
+https://localhost:3000/proyectos/add
