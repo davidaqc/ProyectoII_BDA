@@ -26,7 +26,12 @@ ng serve
 
 **Server**
 URLS:
-Usar npm install para las dependencias
+Usar:
+-> npm install -g nodemon
+-> npm install morgan
+
+para las dependencias
+
 El api se inicia con npm start
 
 GETS:
