@@ -38,3 +38,24 @@ POST:
 https://localhost:3000/voluntarios/add
 https://localhost:3000/organizaciones/add
 https://localhost:3000/proyectos/add
+
+Voluntario:
+{
+    "name": "David Calderon",
+    "age": 24,
+    "country": "Costa Rica"
+}
+
+Organizacion:
+{
+    "name": "Test1",
+    "country": "Costa Rica"
+}
+
+Proyecto:
+{
+    "name": "Manhattam",
+    "country": "Costa Rica",
+    "targetPopulation": "Adultos Mayores",
+    "durationWeeks":3
+}
