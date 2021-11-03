@@ -8,7 +8,7 @@ var router = express.Router();
 
 //Variables requeridas para el HTTPS
 const fs = require('fs')
-const https = require('https')
+const https = require('http')
 const path = require('path')
 const port = 3000
 
@@ -43,8 +43,11 @@ app.use(bodypParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Conexion con la base de datos
-var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "pass"));
-var session = driver.session();
+var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "root"));
+var session = driver.session({
+  database: 'ventaproductos',
+  defaultAccessMode: neo4j.session.WRITE
+})
 
 //GET
 app.get("/", function(req, res) {
@@ -100,7 +103,7 @@ https.createServer({
     cert: fs.readFileSync('./ssl/server.crt'),
     key: fs.readFileSync('./ssl/server.key')
   }, app).listen(port, function () {
-    console.log(`Node server running on https://localhost:${port}`);
+    console.log(`Node server running on http://localhost:${port}`);
 });
 
 module.exports = app;
