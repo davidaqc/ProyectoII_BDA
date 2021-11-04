@@ -1,1 +1,28 @@
-<p>relacion2 works!</p>
+<app-nabvar-relaciones></app-nabvar-relaciones>
+
+<div class="container mt-3">
+
+    <div class="card mt-5">
+        <div class="card-header">Relacion 2: Relacionar voluntarios con proyectos </div>
+
+        <div class="card-body">
+            <form class="d-flex">
+                <select class="p-2 flex-grow-1 bd-highlight" [(ngModel)]="proyecto_seleccionado" name="proyecto_seleccionado">
+                    <option value="" selected> --Seleccione un proyecto-- </option> <!-- Default item to show -->
+                    <option *ngFor="let item of listaProyectos " [value]="item">
+                        {{item}}
+                    </option>
+                </select>
+                <select class="p-2 flex-grow-1 bd-highlight" [(ngModel)]="voluntario_seleccionada" name="voluntario_seleccionada">
+                    <option value="" selected> --Seleccione un voluntario-- </option> <!-- Default item to show -->
+                    <option *ngFor="let item of listaVoluntarios " [value]="item">
+                        {{item}}
+                    </option>
+                </select>
+                <button class="btn btn-outline-success" type="submit" (click)="cargarOrganizaciones()">Search</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
