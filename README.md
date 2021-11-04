@@ -35,32 +35,65 @@ para las dependencias
 El api se inicia con npm start
 
 GETS:
+Nodos:
 https://localhost:3000/voluntarios
 https://localhost:3000/organizaciones
 https://localhost:3000/proyectos
+Consultas:
+https://localhost:3000/consultas/1
+https://localhost:3000/consultas/2
+https://localhost:3000/consultas/3
+https://localhost:3000/consultas/4
+https://localhost:3000/consultas/5
 
 POST:
+Agregar nodos:
 https://localhost:3000/voluntarios/add
 https://localhost:3000/organizaciones/add
 https://localhost:3000/proyectos/add
+Relaciones:
+https://localhost:3000/voluntarios/proyectos
+https://localhost:3000/organizaciones/proyectos
 
-Voluntario:
+Ejemplo Voluntario:
 {
     "name": "David Calderon",
     "age": 24,
     "country": "Costa Rica"
 }
 
-Organizacion:
+Ejemplo Organizacion:
 {
     "name": "Test1",
     "country": "Costa Rica"
 }
 
-Proyecto:
+Ejemplo Proyecto:
 {
-    "name": "Manhattam",
+    "name": "Test4",
     "country": "Costa Rica",
     "targetPopulation": "Adultos Mayores",
     "durationWeeks":3
 }
+
+Ejemplo Consulta1:
+{
+    "name": "Test4"
+}
+
+Ejemplo Consulta2:
+{
+    "name": "Test1"
+}
+
+Ejemplo Consulta4:
+{
+    "name": "Cristian"
+}
+
+Consultas 3 y 5 no requieren JSON
+
+
+
+
+
