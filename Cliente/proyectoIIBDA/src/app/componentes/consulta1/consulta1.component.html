@@ -5,24 +5,31 @@
 	<div class="card mt-5">
 		<div class="card-header">Consulta 1: Proyectos asociados a una organizacion </div>
 
-        <div class="card-body">
-            <form class="d-flex">
-                <button class="btn btn-outline-success" type="submit"  >Search</button>
-            </form>
-        </div>
+		<div class="card-body">
+			<form class="d-flex">
+				<select class="p-2 flex-grow-1 bd-highlight" [(ngModel)]="selected_item" name="selected_item">
+					<option value="" selected > --Seleccione una organizacion-- </option> <!-- Default item to show -->
+					<option *ngFor="let item of listaOrganizaciones " [value]="item">
+						{{item}}
+					</option>
+				</select>
+				<p></p>
+				<button class="btn btn-outline-success" type="submit" (click)="cargarOrganizaciones()">Search</button>
+			</form>
+		</div>
 
-        <div class="card-body">
+		<div class="card-body">
 			<table id="platosTable" border="1" class="table table-bordered table-sm">
 				<thead class="thead-light text-center">
 					<tr>
-                        <th>Nombre</th>
-                        <th>Pais</th>
+						<th>Nombre</th>
+						<th>Pais</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-center" >
-						
-                       	             
+					<tr class="text-center" *ngFor="let proyecto of proyectos; let i = index">
+						<td>{{proyecto.Nombre}}</td>
+						<td>{{proyecto.Pais}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -31,5 +38,3 @@
 	</div>
 
 </div>
-
-
