@@ -10,32 +10,32 @@ CREATE CONSTRAINT key_Proyectos IF NOT EXISTS ON (a:Proyectos) ASSERT (a.name) I
 CREATE CONSTRAINT notNull_Proyectos IF NOT EXISTS ON (a:Proyectos) ASSERT (a.name) IS NOT NULL;
 
 //Voluntarios
-CREATE (Cristian:Voluntario {name: "Cristian", age: 24, country: "Costa Rica"});
-CREATE (Melany:Voluntario {name: "Melany", age: 24, country: "Costa Rica"});
-CREATE (Julian:Voluntario {name: "Julian", age: 24, country: "Costa Rica"});
-CREATE (David:Voluntario {name: "David", age: 25, country: "Costa Rica"});
+CREATE (Cristian:Voluntario {name: "Cristian", age: 24, country: "Costa Rica"})
+CREATE (Melany:Voluntario {name: "Melany", age: 24, country: "Costa Rica"})
+CREATE (Julian:Voluntario {name: "Julian", age: 24, country: "Costa Rica"})
+CREATE (David:Voluntario {name: "David", age: toInteger(25), country: "Costa Rica"})
 
 //Organizaciones
-CREATE (TEC:Organizaciones {name: "Tecnologico de Costa Rica", country: "Costa Rica"});
-CREATE (FBB:Organizaciones {name: "Fundacion Bandera Blanca", country: "Costa Rica"});
-CREATE (SINAC:Organizaciones {name: "Sistema Nacional de Areas de Conservacion", country: "Costa Rica"});
+CREATE (TEC:Organizaciones {name: "Tecnologico de Costa Rica", country: "Costa Rica"})
+CREATE (FBB:Organizaciones {name: "Fundacion Bandera Blanca", country: "Costa Rica"})
+CREATE (SINAC:Organizaciones {name: "Sistema Nacional de Areas de Conservacion", country: "Costa Rica"})
 
 //Proyectos
-CREATE (P1:Proyectos {name: "Test1", country: "Costa Rica", targetPopulation: "Hospitales", durationWeeks: 3});
-CREATE (P2:Proyectos {name: "Test2", country: "Nicaragua", targetPopulation: "Escuelas", durationWeeks: 2});
-CREATE (P3:Proyectos {name: "Test3", country: "Panama", targetPopulation: "Adultos Mayores", durationWeeks: 1});
+CREATE (P1:Proyectos {name: "Test1", country: "Costa Rica", targetPopulation: "Hospitales", durationWeeks: 3})
+CREATE (P2:Proyectos {name: "Test2", country: "Nicaragua", targetPopulation: "Escuelas", durationWeeks: 2})
+CREATE (P3:Proyectos {name: "Test3", country: "Panama", targetPopulation: "Adultos Mayores", durationWeeks: 1})
 
 //Relaciones
 //Organiza
-CREATE (SINAC)-[:Organiza]->(P1);
-CREATE (TEC)-[:Organiza]->(P2);
-CREATE (FBB)-[:Organiza]->(P3);
+CREATE (SINAC)-[:Organiza]->(P1)
+CREATE (TEC)-[:Organiza]->(P2)
+CREATE (FBB)-[:Organiza]->(P3)
 
 //ParticipaEn
-CREATE (Cristian)-[:ParticipaEn]->(P1);
-CREATE (Melany)-[:ParticipaEn]->(P2);
-CREATE (Julian)-[:ParticipaEn]->(P3);
-CREATE (David)-[:ParticipaEn]->(P3);
+CREATE (Cristian)-[:ParticipaEn]->(P1)
+CREATE (Melany)-[:ParticipaEn]->(P2)
+CREATE (Julian)-[:ParticipaEn]->(P3)
+CREATE (David)-[:ParticipaEn]->(P3)
 
 
 ////////////////////////////////// FIN ///////////////////////////////////////////////

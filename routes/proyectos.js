@@ -14,11 +14,10 @@ router.get("/", function(req, res) {
             var proyectosArray = [];
             result.records.forEach(function(record){
                 proyectosArray.push({
-                    id: record._fields[0].identity.low,
                     name: record._fields[0].properties.name,
                     country: record._fields[0].properties.country,
                     targetPopulation: record._fields[0].properties.targetPopulation,
-                    durationWeeks: record._fields[0].properties.durationWeeks
+                    durationWeeks: record._fields[0].properties.durationWeeks.low
                 })
             });
             res.json(proyectosArray)
@@ -40,17 +39,19 @@ router.post("/add", function(req, res){
     }
 
     session
-        .run("CREATE(n:Proyectos {name: $nameParam, country: $countryParam, targetPopulation $targetParam, durationWeeks: $durationParam }) RETURN n", {
+        .run("CREATE(n:Proyectos {name: $nameParam, country: $countryParam, targetPopulation: $targetParam, durationWeeks: $durationParam }) RETURN n", {
             nameParam: name,
             countryParam: country,
-            targetPopulation: targetPopulation,
-            durationWeeks: durationWeeks            
+            targetParam: targetPopulation,
+            durationParam: durationWeeks            
         })
         .then(function(result){
-            res.redirect("/proyectos");            
+            console.log(result);
+            res.status(201).json({ message: 'Handling POST request to /proyectos/add'});            
         })
         .catch(function(err){
             console.log(err);
+            res.status(500).json({ message: 'There was an error during the POST!' });
         });
 });
 

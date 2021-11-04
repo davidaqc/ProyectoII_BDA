@@ -8,7 +8,7 @@ var router = express.Router();
 
 //Variables requeridas para el HTTPS
 const fs = require('fs')
-const https = require('http')
+const https = require('https')
 const path = require('path')
 const port = 3000
 
@@ -23,14 +23,16 @@ app.use(cors());
 
 
 //Importacion de Routes
-const voluntarioRoute = require('./routes/voluntarios')
-const organizacionRoute = require('./routes/organizaciones')
-const proyectoRoute = require('./routes/proyectos')
+const voluntariosRoute = require('./routes/voluntarios')
+const organizacionesRoute = require('./routes/organizaciones')
+const proyectosRoute = require('./routes/proyectos')
+const consultasRoute = require('./routes/consultas')
 
 //Uso de las Routes
-app.use('/voluntarios', voluntarioRoute)
-app.use('/organizaciones', organizacionRoute)
-app.use('/proyectos', proyectoRoute)
+app.use('/voluntarios', voluntariosRoute)
+app.use('/organizaciones', organizacionesRoute)
+app.use('/proyectos', proyectosRoute)
+app.use('/consultas', consultasRoute)
 
 //View Engine
 app.set("views", path.join(__dirname, "views"));
@@ -43,11 +45,8 @@ app.use(bodypParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, "public")));
 
 //Conexion con la base de datos
-var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "root"));
-var session = driver.session({
-  database: 'dbvoluntariado',
-  defaultAccessMode: neo4j.session.WRITE
-})
+var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "pass"));
+var session = driver.session();
 
 //GET
 app.get("/", function(req, res) {
@@ -103,7 +102,7 @@ https.createServer({
     cert: fs.readFileSync('./ssl/server.crt'),
     key: fs.readFileSync('./ssl/server.key')
   }, app).listen(port, function () {
-    console.log(`Node server running on http://localhost:${port}`);
+    console.log(`Node server running on https://localhost:${port}`);
 });
 
 module.exports = app;

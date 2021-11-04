@@ -14,9 +14,8 @@ router.get("/", function (req, res) {
             var voluntariosArray = [];
             result.records.forEach(function (record) {
                 voluntariosArray.push({
-                    id: record._fields[0].identity.low,
                     name: record._fields[0].properties.name,
-                    age: record._fields[0].properties.age,
+                    age: record._fields[0].properties.age.low,
                     country: record._fields[0].properties.country
                 })
             });
@@ -39,7 +38,6 @@ router.post("/add", function (req, res) {
         name = null;
     }
 
-
     session
         .run("CREATE(n:Voluntario {name: $nameParam, age: $ageParam, country: $countryParam}) RETURN n", {
             nameParam: name,
@@ -47,13 +45,44 @@ router.post("/add", function (req, res) {
             countryParam: country
         })
         .then(function (result) {
-            res.status(201).json({ message: 'Handling POST request to /voluntarios/add' })
+            console.log(result);
+            res.status(201).json({ message: 'Handling POST request to /voluntarios/add' });
         })
         .catch(function (err) {
             console.log(err);
             res.status(500).json({ message: 'There was an error during the POST!'})
         });
 
+});
+
+//POST
+router.post("/proyectos", function (req, res) {
+    var vName = req.body.vName;
+    var pName = req.body.pName
+
+    if (vName.replace(/\s/g, '') == '') {
+        vName = null;
+    }
+    if (pName.replace(/\s/g, '') == '') {
+        pName = null;
+    }
+
+    session
+        .run("MATCH(a:Voluntario {name: $vNameParam}), (b:Proyectos {name: $pNameParam}) CREATE (a)-[r:ParticipaEn]->(b) RETURN type(r)", {
+            vNameParam: vName,
+            pNameParam: pName
+        })
+        .then(function (result) {
+            if (result.records[0] == undefined) {
+                return res.status(404).json({ message: 'Either the volunteer name or the project name has not been found' })
+            } else {
+                res.status(201).json({ message: 'Handling POST request to /voluntarios/proyectos' });
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.status(500).json({ message: 'There was an error during the POST!' })
+        });
 });
 
 module.exports = router
