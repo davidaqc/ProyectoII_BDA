@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router} from '@angular/router';
-import { ActivatedRoute } from '@angular/router'; // Importar
-
 @Component({
   selector: 'app-consulta1',
   templateUrl: './consulta1.component.html',
@@ -10,7 +7,7 @@ import { ActivatedRoute } from '@angular/router'; // Importar
 })
 export class Consulta1Component implements OnInit {
 
-  constructor(private router:Router, private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

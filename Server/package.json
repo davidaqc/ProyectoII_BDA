@@ -15,7 +15,7 @@
     "express": "*",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
-    "morgan": "*",
+    "morgan": "^1.10.0",
     "neo4j-driver": "*"
   }
 }

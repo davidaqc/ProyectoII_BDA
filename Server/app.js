@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //Conexion con la base de datos
 var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo4j", "root"));
 var session = driver.session({
-  database: 'ventaproductos',
+  database: 'dbvoluntariado',
   defaultAccessMode: neo4j.session.WRITE
 })
 
