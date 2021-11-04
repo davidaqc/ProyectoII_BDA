@@ -15,6 +15,11 @@ import { RelacionesComponent } from './componentes/relaciones/relaciones.compone
 import { NabvarRelacionesComponent } from './componentes/nabvar-relaciones/nabvar-relaciones.component';
 import { Relacion1Component } from './componentes/relacion1/relacion1.component';
 import { Relacion2Component } from './componentes/relacion2/relacion2.component';
+import { RegistrosComponent } from './componentes/registros/registros.component';
+import { Registro1Component } from './componentes/registro1/registro1.component';
+import { Registro2Component } from './componentes/registro2/registro2.component';
+import { Registro3Component } from './componentes/registro3/registro3.component';
+import { NabvarRegistrosComponent } from './componentes/nabvar-registros/nabvar-registros.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,11 @@ import { Relacion2Component } from './componentes/relacion2/relacion2.component'
     NabvarRelacionesComponent,
     Relacion1Component,
     Relacion2Component,
+    RegistrosComponent,
+    Registro1Component,
+    Registro2Component,
+    Registro3Component,
+    NabvarRegistrosComponent,
   ],
   imports: [
     BrowserModule,

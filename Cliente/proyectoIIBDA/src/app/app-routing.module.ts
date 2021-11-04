@@ -10,6 +10,10 @@ import { Consulta5Component } from './componentes/consulta5/consulta5.component'
 import { RelacionesComponent } from './componentes/relaciones/relaciones.component';
 import { Relacion1Component } from './componentes/relacion1/relacion1.component';
 import { Relacion2Component } from './componentes/relacion2/relacion2.component';
+import { RegistrosComponent } from './componentes/registros/registros.component';
+import { Registro1Component } from './componentes/registro1/registro1.component';
+import { Registro2Component } from './componentes/registro2/registro2.component';
+import { Registro3Component } from './componentes/registro3/registro3.component';
 
 const routes: Routes = [
     // Rutas
@@ -20,10 +24,13 @@ const routes: Routes = [
     {path:'consulta3', component: Consulta3Component},
     {path:'consulta4', component: Consulta4Component},
     {path:'consulta5', component: Consulta5Component},
-
     {path:'relaciones', component: RelacionesComponent},
     {path:'relacion1', component: Relacion1Component},
     {path:'relacion2', component: Relacion2Component},
+    {path:'registros', component: RegistrosComponent},
+    {path:'registro1', component: Registro1Component},
+    {path:'registro2', component: Registro2Component},
+    {path:'registro3', component: Registro3Component},
     {path: '**', pathMatch:'full', redirectTo: ''}
 ];
 
