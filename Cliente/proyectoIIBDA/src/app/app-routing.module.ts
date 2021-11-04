@@ -7,6 +7,9 @@ import { Consulta2Component } from './componentes/consulta2/consulta2.component'
 import { Consulta3Component } from './componentes/consulta3/consulta3.component';
 import { Consulta4Component } from './componentes/consulta4/consulta4.component';
 import { Consulta5Component } from './componentes/consulta5/consulta5.component';
+import { RelacionesComponent } from './componentes/relaciones/relaciones.component';
+import { Relacion1Component } from './componentes/relacion1/relacion1.component';
+import { Relacion2Component } from './componentes/relacion2/relacion2.component';
 
 const routes: Routes = [
     // Rutas
@@ -17,6 +20,10 @@ const routes: Routes = [
     {path:'consulta3', component: Consulta3Component},
     {path:'consulta4', component: Consulta4Component},
     {path:'consulta5', component: Consulta5Component},
+
+    {path:'relaciones', component: RelacionesComponent},
+    {path:'relacion1', component: Relacion1Component},
+    {path:'relacion2', component: Relacion2Component},
     {path: '**', pathMatch:'full', redirectTo: ''}
 ];
 
