@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Proyecto 2 del curso Base de Datos Avanzadas II Semestre del 2021",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "Cristian Marin Murillo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "cors": "^2.8.5",
+    "ejs": "*",
+    "express": "*",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "morgan": "^1.10.0",
+    "neo4j-driver": "*"
+  }
+}
