@@ -8,7 +8,7 @@
 		<div class="card-body">
 			<form class="d-flex">
 				<select class="p-2 flex-grow-1 bd-highlight" [(ngModel)]="selected_item" name="selected_item">
-					<option value="" selected > --Seleccione una organizacion-- </option> <!-- Default item to show -->
+					<option value="" selected > --Seleccione un proyecto-- </option> <!-- Default item to show -->
 					<option *ngFor="let item of listaOrganizaciones " [value]="item">
 						{{item}}
 					</option>

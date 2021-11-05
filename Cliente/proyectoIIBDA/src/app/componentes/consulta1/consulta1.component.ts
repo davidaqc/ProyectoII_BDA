@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Proyecto } from '../../interfaces/proyecto.interface';
+import { Organizaciones } from '../../interfaces/organizaciones.interface';
+import { ServiciosService } from '../../servicios/servicios.service';
 
 @Component({
   selector: 'app-consulta1',
@@ -10,17 +12,29 @@ import { Proyecto } from '../../interfaces/proyecto.interface';
 export class Consulta1Component implements OnInit {
 
   public proyectos: Proyecto[] = [];
-  public listaOrganizaciones: string[];
+  public listaOrganizaciones: string[] = [];
   public selected_item: any;
+  public organizaciones: Organizaciones[] = [];
 
-  constructor() {
+  constructor(public api: ServiciosService) {
 
     this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR" });
     this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU" });
 
-    this.listaOrganizaciones = ["Organizacion1", "Organizacion2", "Organizacion3", "Organizacion4"];
-
     this.selected_item = '';
+
+    // Obtener las organizaciones
+    this.api.ObtenerOrganizaciones()
+      .subscribe((response: any) => {
+
+        this.organizaciones = response;
+        for (let i = 0; i < this.organizaciones.length; i++) {
+          this.listaOrganizaciones.push(this.organizaciones[i].name + "");
+        }
+
+      }, (error: any) => {
+        alert("Error al intentar conectar con el server")
+      });
 
   }
 
