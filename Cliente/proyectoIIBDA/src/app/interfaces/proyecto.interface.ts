@@ -3,5 +3,6 @@ export interface Proyecto {
 	country?: string,
 	targetPopulation?: string,
 	durationWeeks?: string,
-	vQuantity?: string
+	vQuantity?: string,
+	vName?: string
 }

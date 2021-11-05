@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Proyecto } from '../../interfaces/proyecto.interface';
+import { ServiciosService } from '../../servicios/servicios.service';
 
 @Component({
   selector: 'app-consulta2',
@@ -10,24 +11,42 @@ import { Proyecto } from '../../interfaces/proyecto.interface';
 export class Consulta2Component implements OnInit {
 
   public proyectos: Proyecto[] = [];
-  public listaOrganizaciones: string[];
+  public proyectosDatos: Proyecto[] = [];
+  public listaProyectos: string[] = [];
   public selected_item: any;
 
-  constructor() {
-
-    /*this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR" });
-    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU" });*/
-    
-    this.listaOrganizaciones = ["Organizacion1", "Organizacion2", "Organizacion3", "Organizacion4"];
+  constructor(public api: ServiciosService) {
 
     this.selected_item = '';
+
+    // Obtener los proyectos
+    this.api.ObtenerProyectos()
+      .subscribe((response: any) => {
+
+        this.proyectos = response;
+        for (let i = 0; i < this.proyectos.length; i++) {
+          this.listaProyectos.push(this.proyectos[i].name + "");
+        }
+
+      }, (error: any) => {
+        alert("Error al intentar conectar con el server")
+      });
 
   }
 
   ngOnInit(): void { }
 
-  cargarOrganizaciones() {
+  cargarDatosProyectos() {
     console.log(this.selected_item);
+
+    this.api.Consulta2(this.selected_item)
+    .subscribe((response: any) => {
+      console.log(response);
+      this.proyectosDatos = response;
+    }, (error: any) => {
+      alert("Error al intentar conectar con el server")
+    });
+
   }
 
 }

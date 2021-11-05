@@ -9,11 +9,11 @@
 			<form class="d-flex">
 				<select class="p-2 flex-grow-1 bd-highlight" [(ngModel)]="selected_item" name="selected_item">
 					<option value="" selected > --Seleccione un proyecto-- </option> <!-- Default item to show -->
-					<option *ngFor="let item of listaOrganizaciones " [value]="item">
+					<option *ngFor="let item of listaProyectos " [value]="item">
 						{{item}}
 					</option>
 				</select>
-				<button class="btn btn-outline-success" type="submit" (click)="cargarOrganizaciones()">Search</button>
+				<button class="btn btn-outline-success" type="submit" (click)="cargarDatosProyectos()">Search</button>
 			</form>
 		</div>
 
@@ -29,9 +29,12 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-center" *ngFor="let proyecto of proyectos; let i = index">
+					<tr class="text-center" *ngFor="let proyecto of proyectosDatos; let i = index">
 						<td>{{proyecto.name}}</td>
 						<td>{{proyecto.country}}</td>
+						<td>{{proyecto.targetPopulation}}</td>
+						<td>{{proyecto.durationWeeks}}</td>
+						<td>{{proyecto.vName}}</td>
 					</tr>
 				</tbody>
 			</table>

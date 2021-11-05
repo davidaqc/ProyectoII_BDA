@@ -52,9 +52,25 @@ export class ServiciosService {
       });
   }
 
+  Consulta2(Nombre: string) {
+    let direccion = this.url + "consultas/2";
+    return this.http.post(direccion,
+      {
+        name: Nombre
+      });
+  }
+
   Consulta3() {
     let direccion = this.url + "consultas/3";
     return this.http.get(direccion);
+  }
+
+  Consulta4(Nombre: string) {
+    let direccion = this.url + "consultas/4";
+    return this.http.post(direccion,
+      {
+        name: Nombre
+      });
   }
 
   Consulta5() {
