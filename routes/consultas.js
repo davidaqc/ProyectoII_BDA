@@ -6,9 +6,9 @@ const router = express.Router();
 var driver = neo4j.driver("bolt://localhost", neo4j.auth.basic("neo4j", "pass"));
 var session = driver.session();
 
-//GET Consulta 1
+//POST Consulta 1
 //Para una organización, presentar los proyectos que tiene asociados (nombre y país donde se desarrolla).
-router.get("/1", function (req, res) {
+router.post("/1", function (req, res) {
     var name = req.body.name;
     session
         .run("MATCH(a:Organizaciones{name:$nameParam})-[:Organiza]->(n) return n.name , n.country", {
@@ -30,9 +30,9 @@ router.get("/1", function (req, res) {
         });
 });
 
-//GET Consulta 2
+//POST Consulta 2
 //Para un proyecto, presentar todos datos del proyecto y el nombre de los voluntarios que participan en él.
-router.get("/2", function (req, res) {
+router.post("/2", function (req, res) {
     var name = req.body.name;
     session
         .run("MATCH (a:Proyectos{name:$nameParam})<--(b:Voluntario) RETURN  a.name,a.country, a.targetPopulation,a.durationWeeks, b.name", {
@@ -87,9 +87,9 @@ router.get("/3", function (req, res) {
         });
 });
 
-//GET Consulta 4
+//POST Consulta 4
 //Para un voluntario mostrar los proyectos (nombre, país y población meta) en los que está participando.
-router.get("/4", function (req, res) {
+router.post("/4", function (req, res) {
     var name = req.body.name;
     session
         .run("MATCH(a:Voluntario{name:$nameParam})-[:ParticipaEn]->(r) RETURN r.name, r.country, r.targetPopulation", {
