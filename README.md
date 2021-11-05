@@ -27,9 +27,7 @@ ng serve
 **Server**
 URLS:
 Usar:
--> npm install -g nodemon
--> npm install morgan
-
+-> npm install 
 para las dependencias
 
 El api se inicia con npm start
@@ -40,13 +38,15 @@ https://localhost:3000/voluntarios
 https://localhost:3000/organizaciones
 https://localhost:3000/proyectos
 Consultas:
-https://localhost:3000/consultas/1
-https://localhost:3000/consultas/2
 https://localhost:3000/consultas/3
-https://localhost:3000/consultas/4
 https://localhost:3000/consultas/5
 
 POST:
+Consultas:
+https://localhost:3000/consultas/1
+https://localhost:3000/consultas/2
+https://localhost:3000/consultas/4
+
 Agregar nodos:
 https://localhost:3000/voluntarios/add
 https://localhost:3000/organizaciones/add
