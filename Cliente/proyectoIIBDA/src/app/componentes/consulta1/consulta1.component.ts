@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Proyecto } from '../../interfaces/proyecto.interface';
-import { Organizaciones } from '../../interfaces/organizaciones.interface';
+import { Organizacion } from '../../interfaces/organizacion.interface';
 import { ServiciosService } from '../../servicios/servicios.service';
 
 @Component({
@@ -14,12 +14,9 @@ export class Consulta1Component implements OnInit {
   public proyectos: Proyecto[] = [];
   public listaOrganizaciones: string[] = [];
   public selected_item: any;
-  public organizaciones: Organizaciones[] = [];
+  public organizaciones: Organizacion[] = [];
 
   constructor(public api: ServiciosService) {
-
-    this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR" });
-    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU" });
 
     this.selected_item = '';
 
@@ -40,8 +37,18 @@ export class Consulta1Component implements OnInit {
 
   ngOnInit(): void { }
 
-  cargarOrganizaciones() {
+  cargarDatosProyectos() {
     console.log(this.selected_item);
+
+    this.api.Consulta1(this.selected_item)
+    .subscribe((response: any) => {
+      console.log(response);
+      this.proyectos = response;
+      //alert("Se relaciono un voluntario con un proyecto")
+    }, (error: any) => {
+      alert("Error al intentar conectar con el server")
+    });
+
   }
 
 }

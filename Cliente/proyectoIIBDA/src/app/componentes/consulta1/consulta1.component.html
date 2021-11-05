@@ -13,7 +13,7 @@
 						{{item}}
 					</option>
 				</select>
-				<button class="btn btn-outline-success" type="submit" (click)="cargarOrganizaciones()">Search</button>
+				<button class="btn btn-outline-success" type="submit" (click)="cargarDatosProyectos()">Search</button>
 			</form>
 		</div>
 
@@ -27,8 +27,8 @@
 				</thead>
 				<tbody>
 					<tr class="text-center" *ngFor="let proyecto of proyectos; let i = index">
-						<td>{{proyecto.Nombre}}</td>
-						<td>{{proyecto.Pais}}</td>
+						<td>{{proyecto.name}}</td>
+						<td>{{proyecto.country}}</td>
 					</tr>
 				</tbody>
 			</table>

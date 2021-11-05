@@ -12,11 +12,44 @@ export class ServiciosService {
   url: string = " https://localhost:3000/";
 
   ObtenerOrganizaciones() {
-
     let direccion = this.url + "organizaciones";
     return this.http.get(direccion);
-
   }
 
+  ObtenerProyectos() {
+    let direccion = this.url + "proyectos";
+    return this.http.get(direccion);
+  }
+
+  ObtenerVoluntarios() {
+    let direccion = this.url + "voluntarios";
+    return this.http.get(direccion);
+  }
+
+  Relacion1(oNombre: string, pNombre: string) {
+    let direccion = this.url + "organizaciones/proyectos";
+    return this.http.post(direccion,
+      {
+        oName: oNombre,
+        pName: pNombre
+      });
+  }
+
+  Relacion2(vNombre: string, pNombre: string) {
+    let direccion = this.url + "voluntarios/proyectos";
+    return this.http.post(direccion,
+      {
+        vName: vNombre,
+        pName: pNombre
+      });
+  }
+
+  Consulta1(Nombre: string) {
+    let direccion = this.url + "consultas/1";
+    return this.http.post(direccion,
+      {
+        name: Nombre
+      });
+  }
 
 }

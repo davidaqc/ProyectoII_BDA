@@ -1,4 +1,4 @@
-export interface Organizaciones {
+export interface Organizacion {
 	name?: string,	
 	country?: string
 }

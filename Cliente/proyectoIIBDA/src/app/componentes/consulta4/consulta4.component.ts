@@ -15,8 +15,8 @@ export class Consulta4Component implements OnInit {
 
   constructor() {
 
-    this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR", "Poblacion_Meta": "Poblacion1" });
-    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU", "Poblacion_Meta": "Poblacion2" });
+    /*this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR", "Poblacion_Meta": "Poblacion1" });
+    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU", "Poblacion_Meta": "Poblacion2" });*/
 
     this.listaVoluntarios = ["Voluntario1", "Voluntario2", "Voluntario3"];
 

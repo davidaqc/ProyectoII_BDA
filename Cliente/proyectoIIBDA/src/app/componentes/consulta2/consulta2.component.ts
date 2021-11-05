@@ -15,9 +15,9 @@ export class Consulta2Component implements OnInit {
 
   constructor() {
 
-    this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR" });
-    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU" });
-
+    /*this.proyectos.push({ "Nombre": "Proyecto1", "Pais": "CR" });
+    this.proyectos.push({ "Nombre": "Proyecto2", "Pais": "EEUU" });*/
+    
     this.listaOrganizaciones = ["Organizacion1", "Organizacion2", "Organizacion3", "Organizacion4"];
 
     this.selected_item = '';

@@ -1,6 +1,7 @@
 export interface Proyecto {
-	Nombre?: string,	
-	Pais?: string,
-	Poblacion_Meta?: string,
-	Voluntarios?: string
+	name?: string,	
+	country?: string,
+	targetPopulation?: string,
+	Voluntarios?: string,
+	durationWeeks?: string
 }
