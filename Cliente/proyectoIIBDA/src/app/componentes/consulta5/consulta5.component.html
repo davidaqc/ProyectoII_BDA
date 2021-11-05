@@ -7,7 +7,7 @@
 
 		<div class="card-body">
 			<form class="d-flex">
-				<button class="btn btn-outline-success" type="submit">Search</button>
+				<button class="btn btn-outline-success" type="submit" (click)="cargarDatosProyectos()">Search</button>
 			</form>
 		</div>
 
@@ -20,9 +20,9 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-center" >
-						<td></td>
-						<td></td>
+					<tr class="text-center" *ngFor="let proyecto of proyectos; let i = index">
+						<td>{{proyecto.targetPopulation}}</td>
+						<td>{{proyecto.vQuantity}}</td>
 					</tr>
 				</tbody>
 			</table>

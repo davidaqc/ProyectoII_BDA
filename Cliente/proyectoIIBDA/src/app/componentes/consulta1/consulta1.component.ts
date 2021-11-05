@@ -44,7 +44,6 @@ export class Consulta1Component implements OnInit {
     .subscribe((response: any) => {
       console.log(response);
       this.proyectos = response;
-      //alert("Se relaciono un voluntario con un proyecto")
     }, (error: any) => {
       alert("Error al intentar conectar con el server")
     });

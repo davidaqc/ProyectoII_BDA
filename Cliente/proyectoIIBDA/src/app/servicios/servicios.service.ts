@@ -52,4 +52,14 @@ export class ServiciosService {
       });
   }
 
+  Consulta3() {
+    let direccion = this.url + "consultas/3";
+    return this.http.get(direccion);
+  }
+
+  Consulta5() {
+    let direccion = this.url + "consultas/5";
+    return this.http.get(direccion);
+  }
+
 }
