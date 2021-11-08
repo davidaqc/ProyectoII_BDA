@@ -25,12 +25,18 @@ ng serve
 ```
 
 **Server**
-URLS:
-Usar:
--> npm install 
-para las dependencias
 
-El api se inicia con npm start
+Instale algunos dependencias de Nodejs:
+
+```
+npm install
+```
+
+Ejecute la aplicación:
+
+```
+npm start
+```
 
 GETS:
 Nodos:
@@ -92,8 +98,4 @@ Ejemplo Consulta4:
 }
 
 Consultas 3 y 5 no requieren JSON
-
-
-
-
 
